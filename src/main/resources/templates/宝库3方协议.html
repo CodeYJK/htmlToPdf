@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <style>
+        body{margin：0;font-family: SimSun;font-size: 1px;}
+        div{line-height: 18px;}
+        @page {
+            size:297mm 210mm;
+            @bottom-right{
+                content: "第" counter(page) "页 共" counter(pages) "页";
+                font-family: SimSun;
+                font-size: 15px;
+                color:#000;
+            };
+        }
+
+        #pagenumber:before {
+            content: counter(page);
+        }
+
+        #pagecount:before {
+            content: counter(pages);
+        }
+    </style>
+    <title></title>
+</head>
+
+<body>
+<div id="pf1" style = "page-break-after:always;"  data-page-no="1">
+    <div style="width : 329px; height: 732px; left: 54px; font-size: 13px;">
+        <div style="text-align: center">
+            <strong style="mso-bidi-font-weight: normal">
+                <span style=" font-size: 16pt;layout-grid-mode: both;">租赁服务协议</span ></strong>
+        </div>
+        <div style="text-align: right; font-size: 10pt;">协议号【${contractNo ! ""}】</div>
+        <div style="height: 5px;"></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">特别提醒∶在此特别提示您阅读本协议及补充协议的各项条款，部分条款可能限制或影响您的权利义务，尤其是以粗体标示的部分条款。如您确认接受本协议及补充协议，即视为您已阅读、充分理解并同意本协议所有条款，同意接受本协议的约束。</span> </strong></div>
+        <div style="height: 13px;"></div>
+        <div>甲方（承租方）：${realName ! ""}</div>
+        <div>身份证号：${idcardNum ! ""}</div>
+        <div style="height: 13px;"></div>
+        <div>乙方（出租方）：上海信巢网络科技有限公司</div>
+        <div>社会信用代码：91310115MA1HBBB8X3</div>
+        <div style="height: 13px;"></div>
+        <div>丙方（平台方）：${platformName ! ""}</div>
+        <div>社会信用代码：${platformCardNum ! ""}</div>
+        <div style="height: 13px;"></div>
+        <div>鉴于：甲方作为完全民事行为能力人有意向乙方租赁设备并支付租金，丙方愿为双方交易提供技术服务保障。现甲乙丙三方根据相关法律法规签署《租赁服务协议》（下称本协议）及相关补充协议、附件。</div>
+        <div style="height: 8px;"></div>
+        <div><strong><span style="letter-spacing: -0.05pt;">一、订单信息</span></strong></div>
+        <div>1、订单详细信息</div>
+        <table style=" font-size: 13px; line-height: 1px; height: 190px; width: 318px; position: absolute; top: 420px; word-wrap:bread-word;word-break:break-all;" border="1" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr style="height: 30px;">
+                <td style="width: 90px; text-align: center;">
+                    <p><span>订单编号</span></p>
+                </td>
+                <td style="width: 228px; text-align: center;">
+                    <p>${orderSn ! ""}</p>
+                </td>
+            </tr>
+            <tr style="height: 30px;">
+                <td style="width: 90px; text-align: center;">
+                    <p><span>租赁方式</span></p>
+                </td>
+                <td style="width: 228px; text-align: center; line-height: 11px;">
+                    到期可售
+                </td>
+            </tr>
+            <tr style="height: 40px;">
+                <td style="width: 90px; text-align: center;">
+                    <p><span>设备名称型号</span></p>
+                </td>
+                <td style="width: 228px; text-align: center; line-height: 11px;">
+                    <p>${productName ! ""} ：${specId ! ""}</p>
+                </td>
+            </tr>
+            <tr style="height: 15px;">
+                <td style="width: 80px; text-align: center;">
+                    <p><span>套餐名称</span></p>
+                </td>
+                <td style="width: 238px; text-align: center; line-height: 11px;">
+                    <p> ${specId ! ""}</p>
+                </td>
+            </tr>
+            <tr style="height: 15px;">
+                <td  style="width: 90px; text-align: center;">
+                    <p><span>设备成色</span></p>
+                </td>
+                <td style="width: 228px; text-align: center;">
+                    <p>${quality ! "全新"}</p>
+                </td>
+            </tr>
+            <tr style="height: 30px;">
+                <td  style="width: 90px; text-align: center;">
+                    <p><span>总租金</span></p>
+                </td>
+                <td style="width: 228px; text-align: center;">
+                    <p>${rentalAllRent ! "全新"}</p>
+                </td>
+            </tr>
+            <tr style="height: 30px;">
+                <td  style="width: 90px; text-align: center;">
+                    <p><span>总期数</span></p>
+                </td>
+                <td style="width: 228px; text-align: center;">
+                    <p>${termTotal ! ""}期</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="width : 329px; height: 732px; position: absolute; left: 339px; top: 0px; ; font-size: 13px;" border="1" >
+        <table style=" font-size: 13px; line-height: 1px; height: 60px; width: 302px; position: absolute; top: 12px; left: 10px; word-wrap:bread-word;word-break:break-all;" border="1" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr style="height: 30px;">
+                <td style="width: 90px; text-align: center;">
+                    <p><span>设备总价值</span></p>
+                </td>
+                <td style="width: 228px; text-align: center;">
+                    <p>${buyPrice ! ""}</p>
+                </td>
+            </tr>
+            <tr style="height: 30px;">
+                <td style="width: 90px; text-align: center;">
+                    <p><span>合同总金额</span></p>
+                </td>
+                <td style="width: 228px; text-align: center;">
+                    <p>${buyPrice ! ""}</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+        <table style="  font-size: 12px; line-height: 1px; height: 240px; width: 302px; position: absolute; top: 85px; left: 10px; text-align: center;" border="1" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr style=" height: 20px">
+                <td style="text-align: center;" colspan="3" valign="center" width="340">
+                    <p align="center"><strong><span>租金支付表</span></strong></p>
+                </td>
+            </tr>
+            <tr style=" height: 20px">
+                <td style="text-align: center;" valign="center" width="39">
+                    <p><span>租期</span></p>
+                </td>
+                <td style="text-align: center;" valign="center" width="189">
+                    <p><span>账单日</span></p>
+                </td>
+                <td style="text-align: center;" valign="center" width="111">
+                    <p><span>租金额</span></p>
+                </td>
+            </tr>
+            <tr style=" height: 20px">
+                <td style="text-align: center;" valign="center" width="39">
+                    <#if rentalList[0]??>
+                    <p>1</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+                <td style="text-align: center;" valign="center" width="189">
+                    <p><span>${(rentalList[0].rentBackTime)?default("")}</span></p>
+                </td>
+                <td style="text-align: center;" valign="center" width="111">
+                    <#if rentalList[0]??>
+                    <p>${signRentAmt ! ""}</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+            </tr>
+            <tr style=" height: 20px">
+                <td style="text-align: center;" valign="center" width="39">
+                    <#if rentalList[1]??>
+                    <p>2</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+                <td style="text-align: center;" valign="center" width="189">
+                    <p><span>${(rentalList[1].rentBackTime)?default("")}</span></p>
+                </td>
+                <td style="text-align: center;" valign="center" width="111">
+                    <#if rentalList[1]??>
+                    <p>${signRentAmt ! ""}</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+            </tr>
+            <tr style=" height: 20px">
+                <td style="text-align: center;" valign="center" width="39">
+                    <#if rentalList[2]??>
+                    <p>3</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+                <td style="text-align: center;" valign="center" width="189">
+                    <p><span>${(rentalList[2].rentBackTime)?default("")}</span></p>
+                </td>
+                <td style="text-align: center;" valign="center" width="111">
+                    <#if rentalList[2]??>
+                    <p>${signRentAmt ! ""}</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+            </tr>
+            <tr style=" height: 20px">
+                <td style="text-align: center;" valign="center" width="39">
+                    <#if rentalList[3]??>
+                    <p>4</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+                <td style="text-align: center;" valign="center" width="189">
+                    <p><span>${(rentalList[3].rentBackTime)?default("")}</span></p>
+                </td>
+                <td style="text-align: center;" valign="center" width="111">
+                    <#if rentalList[3]??>
+                    <p>${signRentAmt ! ""}</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+            </tr>
+            <tr style=" height: 20px">
+                <td style="text-align: center;" valign="center" width="39">
+                    <#if rentalList[4]??>
+                    <p>5</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+                <td style="text-align: center;" valign="center" width="189">
+                    <p><span>${(rentalList[4].rentBackTime)?default("")}</span></p>
+                </td>
+                <td style="text-align: center;" valign="center" width="111">
+                    <#if rentalList[4]??>
+                    <p>${signRentAmt ! ""}</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+            </tr>
+            <tr style=" height: 20px">
+                <td style="text-align: center;" valign="center" width="39">
+                    <#if rentalList[5]??>
+                    <p>6</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+                <td style="text-align: center;" valign="center" width="189">
+                    <p><span>${(rentalList[5].rentBackTime)?default("")}</span></p>
+                </td>
+                <td style="text-align: center;" valign="center" width="111">
+                    <#if rentalList[5]??>
+                    <p>${signRentAmt ! ""}</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+            </tr>
+            <tr style=" height: 20px">
+                <td style="text-align: center;" valign="center" width="39">
+                    <#if rentalList[6]??>
+                    <p>7</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+                <td style="text-align: center;" valign="center" width="189">
+                    <p><span>${(rentalList[6].rentBackTime)?default("")}</span></p>
+                </td>
+                <td style="text-align: center;" valign="center" width="111">
+                    <#if rentalList[6]??>
+                    <p>${signRentAmt ! ""}</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+            </tr>
+            <tr style=" height: 20px">
+                <td style="text-align: center;" valign="center" width="39">
+                    <#if rentalList[7]??>
+                    <p>8</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+                <td style="text-align: center;" valign="center" width="189">
+                    <p><span>${(rentalList[7].rentBackTime)?default("")}</span></p>
+                </td>
+                <td style="text-align: center;" valign="center" width="111">
+                    <#if rentalList[7]??>
+                    <p>${signRentAmt ! ""}</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+            </tr>
+            <tr style=" height: 20px">
+                <td style="text-align: center;" valign="center" width="39">
+                    <#if rentalList[8]??>
+                    <p>9</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+                <td style="text-align: center;" valign="center" width="189">
+                    <p><span>${(rentalList[8].rentBackTime)?default("")}</span></p>
+                </td>
+                <td style="text-align: center;" valign="center" width="111">
+                    <#if rentalList[8]??>
+                    <p>${signRentAmt ! ""}</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+            </tr>
+            <tr style=" height: 20px">
+                <td style="text-align: center;" valign="center" width="39">
+                    <#if rentalList[9]??>
+                    <p>10</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+                <td style="text-align: center;" valign="center" width="189">
+                    <p><span>${(rentalList[9].rentBackTime)?default("")}</span></p>
+                </td>
+                <td style="text-align: center;" valign="center" width="111">
+                    <#if rentalList[9]??>
+                    <p>${signRentAmt ! ""}</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+            </tr>
+            <tr style=" height: 20px">
+                <td style="text-align: center;" valign="center" width="39">
+                    <#if rentalList[10]??>
+                    <p>11</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+                <td style="text-align: center;" valign="center" width="189">
+                    <p><span>${(rentalList[10].rentBackTime)?default("")}</span></p>
+                </td>
+                <td style="text-align: center;" valign="center" width="111">
+                    <#if rentalList[10]??>
+                    <p>${signRentAmt ! ""}</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+            </tr>
+            <tr style=" height: 20px">
+                <td style="text-align: center;" valign="center" width="39">
+                    <#if rentalList[11]??>
+                    <p>12</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+                <td style="text-align: center;" valign="center" width="189">
+                    <p><span>${(rentalList[11].rentBackTime)?default("")}</span></p>
+                </td>
+                <td style="text-align: center;" valign="center" width="111">
+                    <#if rentalList[11]??>
+                    <p>${signRentAmt ! ""}</p>
+                    <#else>
+                    <p></p>
+                </#if>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div style="width : 339px; position: absolute; left: 0px; top: 512px; ; font-size: 13px;" border="1">
+            <div>2、甲方在下单时与乙方约定租期，按照上述《租金支付表》所列金额、账单日向乙方支付租金，并选择以下三种租赁方式中的任意一种（以订单显示为准）：</div>
+            <div>【到期归还】：在约定的租期内，甲方应当按照本协议约定支付租金，租期届满后向乙方返还租赁设备；</div>
+            <div>【到期可售】：租赁期内，甲方应按本协议约定支付租金，租期届满后，甲方可以要求乙方出售设备，乙方收到甲方支付的买断款后，设备归甲方所有，甲方亦可以在租期内支付买断款提前要求乙方出售设备，买断款=设备总价值-已支付租金；</div>
+
+        </div>
+    </div>
+
+    <div style="width : 310px; height: 732px; position: absolute; left: 700px; top: 8px; ; font-size: 13px;" >
+        <div></div>
+        <div>【随租随还】：甲乙双方不约定固定租期，但约定每期固定金额租金，甲方按期支付租金，甲方支付当期租金后，可以随时归还设备，租期不满1个月的按1个月算，已支付租金不予退回，乙方收到甲方归还的设备且查验符合要求后，甲方无须再支付租金。</div>
+        <div>3、租期的起算：租期自物流公司系统显示签收的次日开始计算。租赁商品由乙方上门配送或由甲方自提的，自乙方确认甲方收到租赁商品之次日开始计算租期。甲方收货当日和寄回当日均不计算在租期内。</div>
+        <div>4、租金及其他费用的支付：</div>
+        <div>1）甲方明确授权乙方可在约定的账单日/付租日自动从甲方注册账户所绑定的支付方式中扣除应缴纳的租金、增值服务费、逾期违约金、运费、损害赔偿、其他费用、合理支出等。</div>
+        <div>2）若乙方判定该笔交易存在风险，有权让甲方提前预付不定期的租金或增加押金数额。</div>
+        <div>3）押金：乙方根据甲方的信用资质授予免押金额度，超出免押部分，甲方应支付押金。未发货前，乙方有权依据其自身风险控制系统输出结果决定变更免押额度或调整押金金额，但须经甲方同意后订单才生效。甲方违约时，乙方可将押金作为租金、违约金直接予以抵扣。</div>
+        <div>4）其他费用的支付：具体以本协议、补充协议、订单载明的为准。</div>
+        <div> <strong><span style="letter-spacing: -0.05pt;">二、发货、验收以及到期处置</span></strong></div>
+        <div>1、甲方指定收货地址：${address ! ""}。</div>
+        <div>2、发货时间：支付首期租金后7日内发货，运费由甲方自行承担；特殊租赁设备库存紧张的，乙方应与甲方协商延长发货时间或为甲方取消订单。</div>
+        <div>3、收货：甲方应按照乙方要求及时签收设备，包括但不限于身份证识别、人脸识别、签字等，并保证租赁设备由甲方本人签收。</div>
+        <div>4、验收：甲方收货后应当立即验收，若经验收发现货物数量、规格不符合订单约定，或质量不符合产品</div>
+    </div>
+</div>
+<div id="pf2" style = "page-break-after:always;"  data-page-no="2">
+    <div style="width : 335px; height: 732px; position: absolute; top: 691px; left: 3px; font-size: 13px">
+        <div>官方标准的，应立即与乙方联系。甲方未在收货后24小时内书面将租赁设备不符的详细情况通知乙方的，则视为验收合格。</div>
+        <div>5、租赁设备到期处置∶</div>
+        <div><strong>1）归还：甲方应在租期届满或本协议被提前终止后5日内将设备通过上门归还或顺丰速运的方式归还至乙方指定地址，并承担运送费用。甲方提前归还设备的，应提前10个工作日与乙方进行协商，乙方根据本协议或补充协议约定的标准，对租赁设备的情况进行验收，甲方须承担因设备折旧、毁损等原因给乙方造成的全部损失。</strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">2）购买：①若甲方根据本协议约定申请购买设备的，应在乙方同意后3个工作日内支付全额买断款并结清所有应付费用（包括但不限于到期应付未付的租金、逾期违约金、其他应付款）。本协议自上述全部债权得到清偿之日终止，设备归甲方所有。如甲方未按约定及时足额支付前述款项的，则申请自动失效。②租期届满10日后，甲方未返还设备的，视为甲方同意购买乙方设备，甲方应向乙方支付设备买断款。③其它应当买断或视为买断的情形，根据本协议约定进行。</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">本协议约定的买断款=设备总价值-已支付全部租金。</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">6、租赁设备未到期处置：</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">1）提前归还：到期归还、到期可售模式下，甲方提前归还设备的须承担违约责任（甲方签收后24小时内未激活设备的除外），违约金为剩余租金的15%；</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">2）购买：到期归还、随租随还模式下，原则上不支持未到期购买，甲方如要购买的须另行与乙方协商。</span> </strong></div>
+
+        <div>
+            <div style="height: 13px;"></div>
+            <div><strong><span style="letter-spacing: -0.05pt;">三、甲方的权利与义务</span></strong></div>
+            <div style="height: 8px;"></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">1、甲方在租赁期间拥有租赁设备的合法使用权，应合理使用并妥善保管租赁设备。甲方不得买卖、抵押、质押、转租、转借租赁设备，不得擅自改动租赁设备任何的设备硬件。</span> </strong></div>
+            <div>2、甲方应按协议约定的每月账单日按时、足额向乙方及乙方授权的第三方支付租金、押金、买断款、逾期违约金、损害赔偿以及其他各项服务费用等。</div>
+            <div>3、租期结束或本协议终止、解除的，除协议另有约定外，甲方应主动归还租赁设备，甲方在归还租赁设备时应按本</div>
+        </div>
+
+        <div style="width : 335px; height: 732px; position: absolute; left: 348px; top: 0px; ; font-size: 13px;" >
+            <div>协议或补充协议的要求确保其正常使用的性能。</div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">4、甲方同意，乙方有权将本协议及补充协议中的全部权利义务转移给丙方或其他第三方享有并行使。权利受让人有权以自身名义针对逾期未支付租金、买断款、逾期滞纳金/违约金、损失赔偿款、诉讼费/仲裁费、公告费、律师费（具体以委托协议或相关票据金额为准）、差旅费、公证费、保全费、保全担保费等向甲方提起仲裁、诉讼或采取其它法律措施，并受领前述款项。</span> </strong></div>
+            <div>5、退还租赁物时，甲方应自行删除并注销所有相关个人信息，并保证无任何遗留物件（如SIM卡、贴膜、防护套等）。否则，因甲方未妥善处理租赁物中相关个人信息所导致的损失由其自行承担。</div>
+            <div>6、甲方应保证其指定账户状态正常，确保资金划入、划出交易的完成。如因前述指定账户不正常（如资金无法及时入账、费用无法划转等）导致的所有损失应由甲方承担。</div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">7、甲方支付任意费用后，乙方未发货前，甲方可无责取消订单；甲方支付后且乙方发货的情况下，甲方未签收、未激活设备的，甲方可以取消订单但需承担设备寄回费用、包装损失费；甲方签收后取消订单的按“提前归还”处理。</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">8、订单发货后，甲方因非设备质量原因拒签或租期开始前寄回产品，应当按照订单类型支付违约金：月租产品支付1个月租金和双程运费。如甲方已购买“租享优”等增值服务的，该费用不予退还。</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">9、为提升甲方服务满意度，甲方知晓并同意，乙方和/或丙方及其关联方可以通过甲方在本协议预留的联系方式，对甲方进行电话回访、客户关怀等。</span> </strong></div>
+            <div style="height: 8px;"></div>
+            <div><strong><span style="letter-spacing: -0.05pt;">四、乙方的权利与义务</span></strong></div>
+            <div style="height: 8px;"></div>
+            <div>1、乙方应向甲方及时交付性能正常的租赁设备，保证规格,配置和订单中标明的一致。如租赁设备交付时存在不符订单要求或出现自然故障,乙方负责免费维修或更换设备。</div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">2、租赁设备归还后，乙方有权对归还的设备是否符合正常使用的性能进行检测、验收和作出判断。</span> </strong></div>
+            <div>3、租赁后的信息发送权利：乙方可通过自有平台、第三方平台、预留电子邮箱及手机短信等方式向甲方发送服务商品、重要提示、促销信息、服务规则、争议解决等信息。</div>
+        </div>
+    </div>
+    <div style="width : 328px; height: 732px; position: absolute; left: 700px; top: 691px; ; font-size: 13px;" >
+        <div> <span style="font-size: 10pt; layout-grid-mode: both;">4、甲方明确知悉并同意，当甲方未能如约支付租金、买断款、逾期违约金、损害赔偿款、服务费或有其它违约行为时，乙方和/或丙方及关联方可以电话、短信等形式通过甲方在本协议或资质审核过程中指定的紧急联系人向甲方发出支付款项、纠正违约行为等通知，并向甲方在本协议或资质审核过程中指定的紧急联系人披露甲方违约的详细信息。甲方确认，在订立本协议时已和紧急联系人就本协议履行事宜做充分沟通。甲方确认紧急联系人信息如下：</span> </div>
+        <div><span style="font-size: 10pt; layout-grid-mode: both;">【${contactName ! ""}】，【${contactPhone ! ""}】，【${contactRelation ! ""}】</span></div>
+        <div><span style="font-size: 10pt; layout-grid-mode: both;">【${contactName2 ! ""}】，【${contactPhone2 ! ""}】，【${contactRelation2 ! ""}】</span></div>
+        <div><span style="font-size: 10pt; layout-grid-mode: both;">【${contactName3 ! ""}】，【${contactPhone3 ! ""}】，【${contactRelation3 ! ""}】</span></div>
+        <div>5、当发生各项费用逾期支付时，乙方有权自行或委托第三方进行催收。</div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">6、在发货前，乙方有权根据甲方资质、信用评级等情况调整押金额度或取消订单或终止协议。</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">7、丙方为甲乙双方交易提供技术服务保障，包括但不限于支付路径搭建、到期还款提醒、客户回访关怀等，丙方不参与双方交易过程，甲乙双方不得要求丙方承担违约责任。依据丙方提供的平台服务，乙方收取的租金包含甲方向丙方支付的平台服务费，服务费率乙丙双方另行约定。</span> </strong></div>
+        <div style="height: 8px;"></div>
+        <div><strong><span style="letter-spacing: -0.05pt;">五、 丙方的权利与义务</span></strong></div>
+        <div style="height: 8px;"></div>
+        <div>1.根据甲方授权及乙方要求，对甲方提交申请租赁的信用信息有知情权并有权合法使用该信息进行风控评估，并承诺不泄露甲方在乙方和/或丙方留存的资料信息。</div>
+        <div>2.丙方有权对乙方提供的租赁服务负有监督的义务，并及时处理甲方的投诉。</div>
+        <div>3.丙方不承担由甲方使用乙方租赁设备引起的任何连带责任或补充责任，包括但不限于各种人身伤害、财产损失、影响企业商誉，以及其他可能对第三方造成的损失。</div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">4.一旦甲方发生本合同项下的任何违约行为时，乙方同意丙方可在乙方授权后对甲方进行追责，丙方以本合同项下乙方委托授权的范围为限享有乙方授予的权利，包括但不限于对甲方发出催告、回收租赁物并催收租金、提起诉讼/仲裁等救济权利。</span> </strong></div>
+    </div>
+</div>
+
+<div id="pf3"  data-page-no="3">
+    <div style= "width : 329px; height: 732px; position: absolute; top: 1390px; left: 3px; font-size: 13px">
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">5.丙方有权将甲方的违约行为向相关征信机构披露。</span> </strong></div>
+        <div style="height: 8px;"></div>
+        <div><strong><span style="letter-spacing: -0.05pt;">六、个人信息收集与授权</span></strong></div>
+        <div style="height: 8px;"></div>
+        <div>1、当甲方注册丙方平台账户并使用平台租赁服务时，甲方必须向乙方和平台运营方提供必要的个人信息。乙方或平台运营方收集个人信息的目的是为甲方提供甲方要求的租赁服务以及做租赁风险评估，从而更好地为甲方提供免押租赁服务。</div>
+        <div>2、甲方同意，为履行本协议之目的，乙方或平台运营方有权向必要的第三方（包括但不限于芝麻信用等合作平台）提供甲方的个人信息、账号、手机号、协议约定及变更信息、协议履行和违约情况、甲方参与诉讼仲裁等争议解决的过程及结果等，以判断为甲方提供租赁服务的风险并不断改善为甲方提供服务的标准。此外，乙方或平台运营方将根据有关法律规定或任何有权机关的要求而披露前述信息。</div>
+        <div>3、甲方同意授权乙方和/或丙方通过自行收集或甲方提供的个人信息（包括紧急联系人信息）发送还款提醒或逾期催收等信息。为了本协议权利和义务，甲方同意授权乙方将通过自行收集或甲方提供的个人信息、逾期记录等提供给有关合作机构、征信机构。</div>
+        <div style="height: 8px;"></div>
+        <div><strong><span style="letter-spacing: -0.05pt;">七、设备由租转售</span></strong></div>
+        <div style="height: 8px;"></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">1、发生以下情况，甲方所租赁的设备将直接由租转售，即乙方向甲方发送买断通知，甲方应当在乙方发送租转售通知后三日内支付买断款等各项费用：</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">1）甲方逾期支付超过10个自然日；</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">2）甲方逾期归还设备超过10个自然日；</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">3）以任何原因租赁期限提前终止，甲方逾期归还设备或提前终止支付费用超过10个自然日；</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">4）甲方无法归还租赁设备，或归还后不符合本协议或补充协议约定的使用性能；</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">5）其他应当买断或视为买断租赁设备的情形。</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">2、甲方归还的租赁设备存在以下情形之一，视为由租转售，需买断设备：</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">1）租赁设备无法正常开机；</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">2）租赁设备进液的；</span> </strong></div>
+
+        <div style="width : 348px; height: 732px; position: absolute; left: 340px; top: 0px; ; font-size: 13px;" >
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">3）二手租赁设备外壳明显划痕超过3处，或任意一处触感划痕长度超过1厘米的；</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">4）二手租赁设备外壳有明显磕碰；</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">5）在系统恢复激活后，无法通过设置-通用-关于本机（或类似操作）读取租赁设备序列号或IMEI编号；</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">6）租赁设备型号、SN号、IMEI号等在进行系统恢复后与租赁时记载的不符、涂改、缺失或无法辨识的；</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">7）无法通过连接iTunes识别租赁设备序列号；</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">8）租赁设备存在私自拆机、擅自改装、维修痕迹的；</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">9）租赁设备存在因加装、移除或改动软硬件（包括因安装未经appstore授权的软件）所造成的故障或设备无法使用；</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">10）租赁设备存在毁灭性损坏，发生弯折、机壳分离、内屏损坏、机身内组件（线缆）断裂破损或被强行拆成数块的。</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">3、买断款的金额按如下方式计算：买断款=设备总价值-已付租金。</span> </strong></div>
+
+
+            <div style="height: 8px;"></div>
+            <div><strong><span style="letter-spacing: -0.05pt;">八、违约责任</span></strong></div>
+            <div style="height: 8px;"></div>
+            <div>1、协议任何一方在发生违约情形时，应当承担继续履行、采取补救措施、支付违约金、赔偿损失等违约责任。</div>
+            <div>2、违约责任及违约金：</div>
+            <div>1）甲方存在违约情形的，乙方有权提前解除本协议，并要求甲方支付违约金、赔偿损失。</div>
+            <div><strong>2）甲方未按时足额支付租金，或未按时归还设备的，乙方除根据本协议第七条要求甲方支付买断款外，还有权要求甲方承担违约金，该违约金计算方式为5元/日，按日累计，累计违约金最高不超过买断款总额的20%。</strong></div>
+            <div><strong>3）甲方提前归还设备的，除按本协议第二条约定承担乙方全部损失外，还应按照租金余额的15%承担违约金。</strong></div>
+            <div>4）在租赁期限内，因甲方原因对租赁设备造成损坏或做出擅自变动、修理、添改等行为的，应当按协议约定或乙方出具的维修单报价承担赔偿责任。</div>
+            <div><strong>5）租赁期限内，甲方不得擅自联系快递公司更改收货地址、不得解除免密代扣，否则乙方有权立即解除本协议，收回租赁设备并要求甲方赔偿损失。</strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">6）如果本协议任何一方违约，除支付违约金外，违约方还应赔偿守约方全部损失，损失包括但不限于直接损失、预期</span> </strong></div>
+        </div>
+
+        <div style="width : 310px; height: 732px; position: absolute; left: 712px; top: 0px; ; font-size: 13px;" >
+            <div><strong>利益损失、诉讼费/仲裁费、公告费、律师费(具体以委托协议或相关票据金额为准)、差旅费、公证费、保全费、保全担保费等。</strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">7）守约方有权将违约方的违约信息反馈给依法设立的征信机构（包括但不限于芝麻信用管理有限公司），违约方应了解上述违约信息可能影响其在征信机构处的信用状况，并可能影响其申请或办理相关服务。</span> </strong></div>
+            <div style="height: 8px;"></div>
+            <div><strong><span style="letter-spacing: -0.05pt;">九、赔偿条款</span></strong></div>
+            <div>甲方应妥善合理使用租赁设备，如租赁设备归还时不符合本协议约定的归还标准的，甲方应当按照以下标准向乙方支付相应的赔偿金：</div>
+            <div>1、指纹或人脸识别功能异常，指纹或人脸识别模块无法正常读取、录入的，赔偿金额=设备约定总价值×30%。</div>
+            <div>2、配件缺失或损坏，未寄还租赁设备配件或寄还的配件非原装的，赔偿金额以租赁设备官网的配件价格为准。</div>
+            <div>3、iCloud账户无法注销的，赔偿金额=设备约定总价值×65%。</div>
+            <div>4、机身弯曲变形，机身与平面参照物形成可见弧度，导致机身存在重大隐患的，赔偿金额=设备约定总价值×50%。</div>
+            <div>5、设备信号/WIFI不正常、触摸失灵的，赔偿金额=设备约定总价值×50%。</div>
+            <div>6、设备开机后无法进入正常界面的：</div>
+            <div>赔偿金额=设备约定总价值 - 已付租金。</div>
+            <div>7、设备的其它故障情形，赔偿金额由乙方出具的维修单为准。</div>
+            <div style="height: 8px;"></div>
+            <div><strong><span style="letter-spacing: -0.05pt;">十、争议解决</span></strong></div>
+            <div style="height: 8px;"></div>
+            <div>1、本协议的成立、生效、履行、解释及纠纷解决，适用于中华人民共和国大陆地区法律。</div>
+            <div>2、甲乙丙三方明确同意，因本协议引起的或与本协议有关的争议，适用如下争议解决方式：</div>
+        </div>
+    </div>
+</div>
+
+
+<div id="pf4"  data-page-no="4">
+    <div style= "width : 329px; height: 732px; position: absolute; top: 2102px; left: 3px; font-size: 13px">
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">1)未发生债权转让时：甲乙丙三方均同意提交大同仲裁委员会依其现时有效的互联网仲裁规则进行书面审理，仲裁裁决是终局的，对双方均有约束力。各方同意共同</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"><span style="font-size: 10pt; layout-grid-mode: both;">委托仲裁委员会主任指定一名独任仲裁员，不开庭审理。各方确认所提供的电子邮箱、手机号码为有效的电子送达地址，法院或仲裁机构向前述电子邮箱或手机号码发出法律文书及相关文书即视为送达，发送当日即为送达之日。各方确认通过网上提交和领取相关文书，包括但不限于各方当事人提交的文书、证据，以及仲裁庭、仲裁委员会出具的仲裁通知、裁决书等所有文书。仲裁相关文书的送达仅涉及文件名称和登录链接，具体文书需各方按提示登录相关网站查阅和领取。各方特别约定在仲裁过程中仲裁委员会除可通过短信、电子邮件进行送达外亦可通过邮件或短信链接的方式进行仲裁文书电子送达，邮件或短信发出即视为邮件内容或短信内容（含链接内容）已送达，邮件或短信接收方可点击链接进行查看。守约方为实现债权所产生案件受理费、诉讼/仲裁费、诉讼保全费、保全担保费、公告费、律师费(具体以委托协议及发票数额为准)、差旅费等一切费用由违约方承担。</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">2)发生债权转让时：如任何一方将本协议项下债权进行转让的，则由最终债权受让方住所地或被告所在地有管辖权的人民法院管辖。败诉方应承担案件受理费、诉讼/仲裁费、诉讼保全费、保全担保费、公告费、律师费(具体以委托协议及发票数额为准)、差旅费等一切为实现债权而支出的费用。</span> </strong></div>
+        <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">3)双方确认，对上述1)、2)两种情形下不同的争议解决方式已充分知悉，并同意严格执行。</span> </strong></div>
+        <div>3、甲方下单的订单详情页面、乙方发货单、物流轨迹信息、设备签收回执、支付记录、租转售通知、债权转让通知等均是本协议附件，与本协议有同等法律效力。</div>
+        <div style="height: 8px;"></div>
+        <div><strong><span style="letter-spacing: -0.05pt;">十一、通知及送达</span></strong></div>
+        <div>1、因履行本协议或与本协议相关的事宜而需给对方的通知，应以如下联系方式予以发送</div>
+
+
+
+        <div style="width : 329px; height: 732px; position: absolute; left: 348px; top: 0px; ; font-size: 13px;" >
+            <table style=" font-size: 12px; line-height: 11px; height: 100px; width: 302px; position: absolute; left: 10px; text-align：center;" border="1"  cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr style=" height: 18px;">
+                    <td style="text-align: center;" colspan="2" valign="center" width="310">
+                        <p><strong><span>甲方信息</span></strong></p>
+                    </td>
+                </tr>
+                <tr style=" height: 18px;">
+                    <td style="text-align: center; line-height: 0px;" valign="center" width="82">
+                        <p><span>联系人：</span></p>
+                    </td>
+                    <td style="text-align: center; line-height: 0px;" valign="center" width="227">
+                        <p><span>${realName ! ""}</span></p>
+                    </td>
+                </tr>
+                <tr style=" height: 18px;">
+                    <td style="text-align: center;" valign="center" width="82">
+                        <p><span>联系电话：</span></p>
+                    </td>
+                    <td style="text-align: center;" valign="center" width="227">
+                        <p><span>${mobile ! ""}</span></p>
+                    </td>
+                </tr>
+                <tr style=" height: 18px;">
+                    <td style="text-align: center;" valign="center" width="82">
+                        <p><span>联系地址：</span></p>
+                    </td>
+                    <td style="text-align: center;" valign="center" width="227">
+                        <p><span>${address! ""}</span></p>
+                    </td>
+                </tr>
+                <tr style=" height: 18px;">
+                    <td style="text-align: center;" valign="center" width="82">
+                        <p><span>电子邮箱：</span></p>
+                    </td>
+                    <td style="text-align: center;" valign="center" width="227">
+                        <p><span>${email ! ""}</span></p>
+                    </td>
+                </tr>
+                <tr style=" height: 18px;">
+                    <td style="text-align: center;" colspan="2" valign="center" width="310">
+                        <p><strong><span>乙方信息</span></strong></p>
+                    </td>
+                </tr>
+                <tr style=" height: 18px;">
+                    <td style="text-align: center;" valign="center" width="82">
+                        <p><span>联系人</span>:</p>
+                    </td>
+                    <td style="text-align: center;" valign="center" width="227">
+                        <p><span>上海信巢网络科技有限公司</span></p>
+                    </td>
+                </tr>
+                <tr style=" height: 18px;">
+                    <td style="text-align: center; line-height: 0px;" valign="center" width="82">
+                        <p><span>联系电话</span>:</p>
+                    </td>
+                    <td style="text-align: center; line-height: 0px;" valign="center" width="227">
+                        <p><span>021-61734333</span></p>
+                    </td>
+                </tr>
+                <tr style=" height: 18px;">
+                    <td style="text-align: center;" valign="center" width="82">
+                        <p><span>联系地址</span>:</p>
+                    </td>
+                    <td style="text-align: center;" valign="center" width="227">
+                        <p><span>上海市浦东新区川沙路1098号8幢</span></p>
+                    </td>
+                </tr>
+                <tr style=" height: 18px;">
+                    <td style="text-align: center;" colspan="2" valign="center" width="310">
+                        <p><strong><span>丙方信息</span></strong></p>
+                    </td>
+                </tr>
+                <tr style=" height: 18px;">
+                    <td style="text-align: center;" valign="center" width="82">
+                        <p><span>联系人</span>:</p>
+                    </td>
+                    <td style="text-align: center;" valign="center" width="227">
+                        <p><span>${platformName ! ""}</span></p>
+                    </td>
+                </tr>
+                <tr style=" height: 18px;">
+                    <td style="text-align: center; line-height: 0px;" valign="center" width="82">
+                        <p><span>联系电话</span>:</p>
+                    </td>
+                    <td style="text-align: center; line-height: 0px;" valign="center" width="227">
+                        <p><span>027-59771169</span></p>
+                    </td>
+                </tr>
+                <tr style=" height: 18px;">
+                    <td style="text-align: center;" valign="center" width="82">
+                        <p><span>联系地址</span>:</p>
+                    </td>
+                    <td style="text-align: center;" valign="center" width="227">
+                        <p><span>${platformAddress ! ""}</span></p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <div style="width : 329px; position: absolute; left: 0px; top: 512px; ; font-size: 13px;" border="1">
+                <div><strong>2、本协议履行过程中，乙方和/或丙方发送给甲方的书面通知，可选择邮寄或电子送达的方式：</strong></div>
+                <div><strong>1）以邮寄送达的按照甲方于本协议中填写的联系地址为准，交邮后的第三个自然日视为已送达。</strong></div>
+                <div><strong>2）以电子方式通知的，形式包括但不限于乙方和/或丙方用平台站内信息、电子邮件、手机短信、即时通讯工具（如微信、企业微信）等向甲方于本协议中指定的联系方式进行，采取电子方式通知方式的，通知的当日即视为已送达。</strong></div>
+            </div>
+        </div>
+
+        <div style="width : 310px; height: 732px; position: absolute; left: 700px; top: 0px; ; font-size: 13px;" >
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">3、法律文书的送达</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">1）甲方确认并同意，对于因协议争议引起的任何纠纷，司法机关(包括但不限于人民法院、仲裁机构)可以手机短信或电子邮件等现代通讯方式或邮寄方式向甲方送达法律文书（包括诉讼文书）。</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">2）甲方确认并接受将甲方在本协议中提供的手机号码或电子邮箱作为接收法律文书的手机号码或电子邮箱，司法机关以前述码址发出法律文书即视为送达。</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">3）甲方确认并接受邮寄地址为甲方在本协议中提供的联系地址。</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">4）甲方确认并接受司法机关可采取以上一种或多种送达方式向甲方送达法律文书，司法机关采取多种方式向甲方送达法律文书，送达时间以上述送达方式中最先送达的为准。</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">5）甲方确认并接受上述送达方式适用于各个司法阶段，包括但不限于一审、二审、再审、执行、督促程序(含支付令送达)、仲裁程序。</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">6）若甲方上述送达地址及手机号码、电子邮箱等联系方式有变更，甲方应当及时告知乙方和/或丙方和/或司法机关。</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">7）甲方已认真阅读本协议所有条款，并保证上述送达地址是准确、有效的；如果提供的送达地址不准确，或未及时告知变更后的地址，受送达人本人或法律规定的有权签收人拒绝签收，导致法律文书未能被受送达人实际接收的，文书退回之日视为送达之日。</span> </strong></div>
+            <div style="height: 8px;"></div>
+            <div><strong><span style="letter-spacing: -0.05pt;">十二、其他</span></strong></div>
+            <div style="height: 8px;"></div>
+            <div>1、甲方同意，当甲方在丙方平台通过点击确认、勾选同意等方式确认本协议，即视为甲方同意以电子协议的方式订立并认可本协议的效力，并且授权乙方在第三方电子协议平台上代为申请甲方的电子签名，并使用该电子签名完成本协议的签署。</div>
+            <div>2、乙方同意，授权丙方在第三方电子合同平台上代为申请乙方的电子签名，并使用该电子签名完成本协议的签署。在电子协议上使用电子签名视同巳完成本协议的签署，本协议即时生效。</div>
+        </div>
+    </div>
+</div>
+
+
+<div id="pf5"  data-page-no="5">
+    <div style= "width : 329px; height: 689px; position: absolute; top: 2798px; left: 3px; font-size: 13px">
+        <div style="width : 329px; height: 689px; left: 54px; font-size: 13px;">
+            <div>3、补充协议、订单信息与本协议约定的不一致的，以补充协议及订单信息为准。</div>
+            <div>4、本协议以及平台的相关规则以电子方式或纸质协议签署相应的法律文件后，非经法定或约定的方式和程序，不得擅自修改。甲方对法律文件的真伪、版本有任何争议，应以平台或第三方电子协议平台的记录为准。</div>
+            <div style="height: 8px;"></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">甲乙丙三方已经充分阅读并理解以上协议条款内容并承诺对本协议无异议遵守。</span> </strong></div>
+            <div style="height: 65px;"></div>
+            <div>甲方：（签字或盖章）</div>
+            <div style="height: 150px;"></div>
+            <div>乙方：（签字或盖章）</div>
+            <div style="height: 150px;"></div>
+            <div>丙方：（签字或盖章）</div>
+            <div style="height: 65px;"></div>
+            <div>签订日期：${signDate ! ""}</div>
+        </div>
+    </div>
+</div>
+
+
+<div id="pf6"  data-page-no="6">
+    <div style= "width : 329px; height: 689px; position: absolute; top: 3490px; left: 3px; font-size: 13px">
+        <div style="width : 329px; height: 732px; left: 54px; font-size: 13px;">
+            <div style="text-align: center">
+                <strong style="mso-bidi-font-weight: normal">
+                    <span style=" font-size: 16pt;layout-grid-mode: both;">租享优增值服务协议</span ></strong>
+            </div>
+            <div style="height: 15px;"></div>
+            <div>甲方（客户方）：${realName ! ""}</div>
+            <div style="height: 15px;"></div>
+            <div>丙方（服务方）：${platformName ! ""}</div>
+            <div style="height: 15px;"></div>
+            <div><strong><span style="letter-spacing: -0.05pt;">一、租享优服务说明</span></strong></div>
+            <div style="height: 8px;"></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">1、丙方为租赁产品提供增值服务（以下称为租享优）：甲方购买之后，在产品租赁期间发生意外导致屏幕碎裂或缺损，维修费用由丙方承担，或在归还设备时，豁免因意外导致的上述屏幕瑕疵。租享优服务在协议期间仅享受一次。</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">2、服务启用条件：仅适用于甲方通过本协议租赁的在租期内的设备。若租赁协议提前结束，则服务立即终止；若甲方逾期，则服务立即终止；若甲方续租，服务延续，续租期间甲方逾期，则服务立即终止。</span> </strong></div>
+            <div>3、丙方有权选择品牌方或正规有资质的第三方维修商对产品进行鉴定、维修，并据此由丙方出具维修报价单。</div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">4、以下情况不适用于租享优：</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">1）订单中附随的配件；</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">2）用户作为寄件方在物流期间产生的损坏；</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">3）经官方或第三方维修商鉴定结果为无维修价值、产品报废的；</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">4）进水、浸液导致的产品损坏、报废；</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">5）人为正常使用造成的明显划痕、磨损；</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">6）产品在租赁期间进行过维修、拆机、刷机、改变操作系统，私换设备主体、配件；</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">7）主板损坏变形导致不开机的碎屏，进液导致的爆屏，边框变形的碎屏，设备除屏幕外其他部位出现故障（如：进水，边框，后盖，排线，主板，指纹识别键等）。</span> </strong></div>
+            <div>5、针对本服务有任何疑问，可联系丙方在线客服或拨打丙方客服热线【${kfMobile ! "" }】进行服务咨询。</div>
+            <div style="height: 8px;"></div>
+            <div><strong><span style="letter-spacing: -0.05pt;">二、租享优服务费用及服务流程</span></strong></div>
+            <div style="height: 8px;"></div>
+            <div>1、费用及支付方式</div>
+            <div>1）根据设备型号及配置，按照丙方公示的价格，甲方需在支付订单租金时一并支付租享优服务费用。</div>
+
+            <div style="width : 329px; height: 732px; position: absolute; left: 348px; top: 0px; ; font-size: 13px;" >
+                <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">2）租赁协议到期、提前终止、因甲方违约而需要提前买断设备、租享优服务到期，无论包含的所有服务是否全部启动，该项服务费用均不可退。</span> </strong></div>
+                <div>3）优享服务采用寄修方式，需甲方自行将设备寄送至丙方指定地址，快递费采取谁寄谁付运费原则，由双方各自承担。</div>
+                <div>4）优享服务维修所使用的配件为原厂部件或等同原装质量的部件，部件费用无需甲方承担。</div>
+                <div>2、优享服务服务流程</div>
+                <div>1）服务期内设备发生意外碎屏，请第一时间拍摄设备外观。</div>
+                <div>2）联系客服并提供相关素材确保符合"租享优" 服务范围。</div>
+                <div>3）客服审核通过后，请根据要求寄回设备或寄至指定维修地点。</div>
+                <div>4）丙方收货后进行维修。</div>
+                <div>5）丙方向甲方回寄设备，服务结束。</div>
+                <div style="height: 8px;"></div>
+                <div><strong><span style="letter-spacing: -0.05pt;">三、重要提示</span></strong></div>
+                <div style="height: 8px;"></div>
+                <div>1、维修之前请做好产品数据备份，敏感或重要数据请提前自行删除，维修过程可能会造成数据丢失。</div>
+                <div>2、寄回设备请取消开机密码锁，若因密码锁定而导致无法检测，丙方有权不予提供维修服务。</div>
+                <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">3、甲方租赁期间已启用租享优服务，若寄回的设备出现碎屏，用户仍需依据租赁服务协议进行赔付处理。</span> </strong></div>
+                <div>4、协议期间，全新设备出现产品质量问题，将按照官方厂商规定的条例进行维修，经官方厂商维修的商品归还时，维修项目可豁免该项归还要求。经非官方厂商售后维修，该项维修项目归还时不可豁免该项归还要求。</div>
+                <div style="height: 8px;"></div>
+                <div><strong><span style="letter-spacing: -0.05pt;">四、免责声明</span></strong></div>
+                <div style="height: 8px;"></div>
+                <div><strong>1、因维修而导致的任何信息或数据丢失概不负责，请提前做好数据备份。</strong></div>
+                <div><strong>2、产品序列号/IMEI号与服务商品不一致、涂改或缺失的；擅自拆卸、改装由第三方服务商维修的设备不属于本服务范围。</strong></div>
+            </div>
+
+            <div style="width : 310px; height: 732px; position: absolute; left: 700px; top: 0px; ; font-size: 13px;">
+                <div><strong>3、由地震，火灾，洪水，泥石流，火山，台风等自然灾害形成不可抗力导致产品损坏同不属于本服务范围。</strong></div>
+                <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">甲丙双方已经充分阅读并理解以上协议条款内容并对本协议无异议。</span> </strong></div>
+                <div style="height: 65px;"></div>
+                <div>甲方：（签字或盖章）</div>
+                <div style="height: 150px;"></div>
+                <div>丙方：（签字或盖章）</div>
+                <div style="height: 150px;"></div>
+                <div>签订日期： ${signDate ! ""}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="pf7"  data-page-no="7">
+    <div style= "width : 329px; height: 689px; position: absolute; top: 4190px; left: 3px; font-size: 13px">
+        <div style="width : 329px; height: 689px; left: 54px; font-size: 13px;">
+            <div style="text-align: center">
+                <strong style="mso-bidi-font-weight: normal">
+                    <span style=" font-size: 16pt;layout-grid-mode: both;">个人信息查询授权书</span></strong>
+            </div>
+            <div style="height: 8px;"></div>
+            <div>【特别提示】本授权书以数字电文形式或纸质形式签订，在签订授权书之前，请申请人务必仔细阅读本授权书的全部条款，关注您在授权书中的权利和义务。本授权书是您向被授权人做出的单方授权，效力具有独立性，不因交易文件或其它相关文件任何条款的无效而无效。即使您的交易申请未被审核通过，本授权书各项授权的有效性不受影响。<strong>为办理信用租赁业务需要，本人特此不可撤销地向【${platformName ! ""}】、【上海信巢网络科技有限公司】及【大庆市百湖传媒融资担保有限责任公司】（以下称被授权人）授予以下权利：</strong></div>
+            <div>1.本人同意被授权人在本次业务过程中(从业务申请至业务终止)收集本人信息，可自行或通过第三方机构包括：政府部门及其授权机构、电信运营商及其代理商、银行卡相关机构、数据服务机构、信息查询服务机构及信息验证服务机构、中国互联网金融协会、百行征信有限公司、朴道征信有限公司、银联商务股份有限公司、宝付网络科技（上海）有限公司及其他合法主体等）查询、验证或者上报本人信息。</div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">2.本人同意，第1条所述本人信息范围包括:姓名、出生日期、身份证号、生物特征、手机号码、身份、职业和居住地址、学籍学历、婚姻状况等个人基本信息，收入、社保信息、公积金信息、交通、通信、债务、财产、支付、消费、生产经营等经济信息，贷款、银行卡交易记录等主体信贷交易信息及个人账户等银行、非银行信用信息，以及信息使用行为、联系人信息、履行法定义务等，以及基于前述信息对个人信用状况形成的分析、评价类信息。</span> </strong></div>
+            <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">3.本人知悉向被授权人提供收入、存款、银行卡、有价证券、商业保险、不动产的信息和纳税数额信息可能因信息安全保障不完善的情况而产生信息泄露等不良影响;了解征信机构采集该等信息可能导致征信机构了解本人个人资产和负债状况、消费和支出类型和个人消费行为习惯等个人隐私信息及可能产生其他不利后果，在此基础上予以明确同意。</span> </strong></div>
+
+
+            <div style="width : 329px; height: 689px; position: absolute; left: 348px; top: 0px; ; font-size: 13px;" >
+                <div>4.本人知悉被授权人承诺严格遵守国家法律法规规定，并仅可基于服务于本次业务之必要(资信调查、风控管理和防控欺诈、交易管理、处理本人征信异议、业务调查等)目的，查询和收集、分析、整理相关信用信息。除非根据法律规定或有权机关要求，不得向任何人提供、泄露或出售。</div>
+                <div>5.本人同意授权第1条所述第三方机构基于向被授权人提供服务的目的，向被授权人和合法存有本人信息的机构（包括但不限于公安、司法、教育、全国公民身份证号码查询服务中心、通信运营商、银联、通联、易宝、宝付、旷视、社保、公积金、税务、民政、物流、电子商务平台、互联网平台、行业协会等）收集、查询第1条所述本人信息，并可进行相关处理(包括但不限于整理、保存、加工、提供)。上述信息的保存期限为法律法规要求的最短时间，其中个人不良信息的保存期限为自不良行为或事件终止之日起5年。本人同意授权合法存有本人信息的机构向第三方机构提供本人的上述信息。为避免每次查询、核实、采集都需要经过本人的反复确认而导致过程繁琐，或者因此给本人带来不便，本人同意第三方机构可直接向被授权人提供本人的个人信息而不需要本人再次授权。但法律、法规、监管政策禁止的除外。</div>
+                <div>6.本人确认被授权人已经充分说明并确认知悉，被授权人可根据监管制度向有关第三方机构、权威数据源报送本人信用租机相关信息(包括但不限于租期、付款额、履约情况等)。若本人出现违约行为，经债权人及被授权人催告后仍未履行合同义务的，被授权人可向权威数据源提交本人不良信息，记录在信息数据库中。</div>
+                <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">7.本人已经被明确告知，一旦不良信息记录在数据库中，将对日后的经济生活产生不良影响。</span> </strong></div>
+                <div>8.本人同意向被授权人提供其他联系人、亲属信息的，被授权人可在本人违约、失联的情况下联系前述人员并告知相关业务情况。</div>
+            </div>
+
+            <div style="width : 329px; height: 689px; position: absolute; left: 700px; top: 0px; ; font-size: 13px;">
+                <div> <strong style="mso-bidi-font-weight: normal"> <span style="font-size: 10pt; layout-grid-mode: both;">本人经被授权人告知，完全理解并同意以上内容，并在接受被授权方服务期间维持授权。</span> </strong></div>
+                <div style="height: 65px;"></div>
+                <div>甲方：（签字或盖章）</div>
+                <div style="height: 70px;"></div>
+                <div>身份证号：${idcardNum ! ""}</div>
+                <div style="height: 65px;"></div>
+                <div>授权日期：${signDate ! ""}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="pf8"  data-page-no="8">
+    <div style= "width : 329px; height: 689px; position: absolute; top: 4890px; left: 3px; font-size: 13px">
+        <div style="width : 329px; height: 689px; left: 54px; font-size: 13px;">
+            <div style="text-align: center">
+                <strong style="mso-bidi-font-weight: normal">
+                    <span style=" font-size: 16pt;layout-grid-mode: both;">非学生身份承诺函</span></strong>
+            </div>
+            <div style="height: 8px;"></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;为客观、准确地评估本人的租赁资格及信用等级，现本人特此声明：本人不是学生，不存在隐瞒或者虚构身份申请“手机、3C设备”等租赁的情形，且本人拥有合法的固定收入来源。</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;本人承诺：以上陈述为本人真实陈述,不存在故意隐瞒或者虚假陈述，若因本人故意隐瞒或者虚假陈述造成的一切法律后果由本人承担，由此给出租人及平台方（出租人及平台方的定义请参见《租赁服务协议》）造成损失的，本人愿意承担赔偿责任。</div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;本人同意:本承诺函一经点击确认或者电子签名即视为本人已完全理解并同意上述承诺内容，并视为已由本人签署完毕。</div>
+            <div>
+                <div style="height: 65px;"></div>
+                <div>甲方：（签字或盖章）</div>
+                <div style="height: 70px;"></div>
+                <div>身份证号：${idcardNum ! ""}</div>
+                <div style="height: 65px;"></div>
+                <div>授权日期：${signDate ! ""}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
