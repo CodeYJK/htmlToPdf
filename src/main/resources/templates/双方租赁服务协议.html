@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <style>
+        body{margin:0;font-family:SimSun;font-size:1px;}
+        div{line-height:18px;}
+        @page{size:297mm 210mm;margin:0;@bottom-right{content:"第" counter(page) "页 共" counter(pages) "页";font-family:SimSun;font-size:15px;color:#000;};}
+        .page{position:relative;width:1050px;height:680px;page-break-after:always;overflow:hidden;}
+        .page:last-child{page-break-after:auto;}
+        .col{position:absolute;top:0;height:680px;font-size:13px;}
+        .c1{left:3px;width:329px}.c2{left:348px;width:329px}.c3{left:700px;width:310px}
+        .p1 .col{top:55px}.p1 .c1{left:53px}.p1 .c2{left:398px}.p1 .c3{left:750px}
+        .p1 .order{top:400px}.p1 .rent{top:65px;height:420px}.p1 .rent tr{height:28px}
+        .title{text-align:center;font-size:16pt;line-height:22px;font-weight:bold}
+        .strong{font-weight:bold;font-size:10pt;line-height:18px}
+        .gap8{height:8px}.gap13{height:13px}.gap30{height:30px}.gap55{height:55px}.gap110{height:110px}
+        .txt{text-align:justify}.center{text-align:center}.right{text-align:right}
+        table{border-collapse:collapse;table-layout:fixed;word-wrap:break-word;word-break:break-all}
+        td,th{border:1px solid #000;padding:0;text-align:center;vertical-align:middle;font-size:12px;line-height:14px}
+        .order{position:absolute;top:420px;left:0;width:318px;height:230px}
+        .order td:first-child{width:90px}.order td:last-child{width:228px}
+        .rent{position:absolute;top:85px;left:10px;width:302px;height:250px}
+        .rent tr{height:20px}.rent td:nth-child(1){width:39px}.rent td:nth-child(2){width:189px}.rent td:nth-child(3){width:111px}
+        .info{width:318px;margin-top:10px}.info td:first-child{width:90px}.info td:last-child{width:228px}.info tr{height:25px}
+        .sign{margin-top:55px}.sign-gap{height:110px}
+        .line{display:inline-block;min-width:65px;border-bottom:1px solid #000;height:14px;vertical-align:bottom}
+    </style>
+    <title></title>
+</head>
+<body>
+
+<div class="page p1">
+    <div class="col c1">
+        <div class="title">租赁服务协议</div>
+        <div class="right" style="font-size:10pt">协议号【${contractNo ! ""}】</div><div class="gap8"></div>
+        <div class="strong">特别提醒：在此特别提示您阅读本协议及补充协议的各项条款，部分条款可能限制或影响您的权利义务，尤其是以粗体标示的部分条款。如您确认接受本协议及补充协议，即视为您已阅读、充分理解并同意本协议所有条款，同意接受本协议的约束。</div>
+        <div class="gap13"></div><div>甲方（承租方）：${realName ! ""}</div><div>身份证号：${idcardNum ! ""}</div>
+        <div class="gap13"></div><div>乙方（出租方）：${sellerName ! ""}</div><div>社会信用代码：${sellerCardNum ! ""}</div>
+        <div class="gap13"></div><div class="txt">鉴于：甲方作为完全民事行为能力人有意向乙方租赁设备并支付租金。现双方根据相关法律法规签署《租赁服务协议》（下称本协议）及相关补充协议、附件。</div>
+        <div class="gap8"></div><div class="strong">一、订单信息</div><div>1、订单详细信息</div>
+        <table class="order"><tr><td>订单编号</td><td>${orderSn ! ""}</td></tr><tr><td>租赁方式</td><td>${rentTypeName ! ""}</td></tr><tr><td>设备名称型号</td><td>${productName ! ""}：${specId ! ""}</td></tr><tr><td>套餐名称</td><td>${specId ! ""}</td></tr><tr><td>设备成色</td><td>${quality ! ""}</td></tr><tr><td>总租金</td><td>${rentalAllRent ! ""}</td></tr><tr><td>总期数</td><td>${term ! ""}期</td></tr><tr><td>日租金金额</td><td>${signRentAmt ! ""}</td></tr><tr><td>设备总价值</td><td>${productPrice ! ""}</td></tr><tr><td>到期购买款</td><td>${buyPrice ! ""}</td></tr></table>
+    </div>
+    <div class="col c2">
+        <table class="info" style="position:absolute;top:12px;left:0"><tr><td>合同总金额</td><td>${payTotalMoney ! ""}</td></tr><tr><td>免押金额</td><td>${freeDepositAmt ! ""}</td></tr></table>
+        <table class="rent"><tr><td colspan="3"><b>租金支付表</b></td></tr><tr><td>租期</td><td>账单日</td><td>租金额</td></tr>
+            <#list 1..12 as n><tr><td>${n}</td><td><#if rentalList?is_sequence && (rentalList?size >= n)>${(rentalList[n-1].rentBackTime) ! ""}<#else>${payDay ! ""}</#if></td><td><#if rentalList?is_sequence && (rentalList?size >= n)>${(rentalList[n-1].rentAmt) ! ""}<#else></#if></td></tr></#list>
+        </table>
+        <div style="position:absolute;top:505px;left:0;width:335px">2、甲方在下单时与乙方约定租期，按照上述《租金支付表》所列金额、账单日向乙方支付租金，并选择以下三种租赁方式中的任意一种（以订单显示为准）：</div>
+        <div style="position:absolute;top:565px;left:0;width:335px">【到期归还】：在约定的租期内，甲方应当按照本协议约定支付租金，租期届满后向乙方返还租赁设备；</div>
+        <div style="position:absolute;top:625px;left:0;width:335px">【到期可售】：租赁期内，甲方应按本协议约定支付租金，租期届满后，甲方可以要求乙方出售设备，并按本协议约定支付到期购买款。</div>
+    </div>
+    <div class="col c3">
+        <div style="margin-top:8px">【随租随还】：甲乙双方不约定固定租期，但约定每期固定金额租金，甲方按期支付租金，支付当期租金后可以随时归还设备。</div><div>3、租期的起算：租期自物流公司系统显示签收的次日开始计算。租赁商品由乙方上门配送或由甲方自提的，自乙方确认甲方收到租赁商品之次日开始计算。甲方收货当日和寄回当日均不计算在租期内。</div>
+        <div>4、租金及其他费用的支付：</div><div>1）甲方明确授权乙方可在约定的账单日/付租日自动从甲方注册账户所绑定的支付方式中扣除应缴纳的租金、增值服务费、逾期违约金、运费、损害赔偿、其他费用、合理支出等。</div>
+        <div>2）若乙方判定该笔交易存在风险，有权让甲方提前预付不定期的租金或增加押金数额。</div><div>3）押金：乙方根据甲方的信用资质授予免押金额度，超出免押部分，甲方应支付押金。未发货前，乙方有权调整押金金额，但须经甲方同意后订单才生效。</div><div>4）其他费用的支付：具体以本协议、补充协议、订单载明的为准。</div>
+        <div class="strong">二、发货、验收以及到期处置</div><div>1、甲方指定收货地址：${address ! ""}。</div><div>2、发货时间：支付首期租金后7日内发货，运费由甲方自行承担；特殊租赁设备库存紧张的，乙方应与甲方协商延长发货时间或取消订单。</div><div>3、收货：甲方应按照乙方要求及时签收设备，并保证租赁设备由甲方本人签收。</div><div>4、验收：甲方收货后应当立即验收，未在收货后24小时内书面通知乙方的，视为验收合格。</div>
+    </div>
+</div>
+
+<div class="page">
+    <div class="col c1">
+        <div class="strong">5、租赁设备到期处置：</div><div>1）归还：甲方应在租期届满或本协议被提前终止后5日内将设备归还至乙方指定地址，并承担运送费用。甲方提前归还设备的，应提前10个工作日与乙方协商。</div><div>2）购买：甲方申请购买设备的，应在乙方同意后3个工作日内支付到期购买款并结清所有应付费用。未及时足额支付的，申请自动失效，甲方仍须归还设备。</div><div>租赁设备未到期处置：提前归还的违约金为剩余租金的15%；原则上不支持未到期购买，需另行协商。</div>
+        <div class="strong">三、甲方的权利与义务</div><div>1、甲方在租赁期间拥有租赁设备的合法使用权，应合理使用并妥善保管，不得买卖、抵押、质押、转租、转借或擅自改动设备硬件。</div><div>2、甲方应按协议约定按时、足额支付租金、押金、到期购买款、逾期违约金、损害赔偿及其他费用。</div><div>3、租期结束或本协议终止、解除的，甲方应主动归还租赁设备，并确保其正常使用的性能。</div><div>4、甲方同意乙方有权将本协议全部权利义务转移给第三方享有并行使。</div><div>5、退还租赁物时，甲方应自行删除并注销所有相关个人信息，并保证无任何遗留物件。</div>
+    </div>
+    <div class="col c2">
+        <div>6、甲方应保证指定账户状态正常，确保资金划入、划出交易完成。</div><div>7、乙方未发货前，甲方可无责取消订单；乙方发货后取消订单的，按约承担寄回费用、包装损失费或提前归还责任。</div><div>8、订单发货后，甲方因非设备质量原因拒签或租期开始前寄回产品，应按照订单类型支付违约金。</div><div>9、乙方及其关联方可以通过甲方预留的联系方式进行电话回访、客户关怀等服务。</div>
+        <div class="strong">四、乙方的权利与义务</div><div>1、乙方应及时交付性能正常、规格配置与订单一致的租赁设备。如出现自然故障，乙方负责免费维修或更换设备。</div><div>2、设备归还后，乙方有权对设备是否符合正常使用性能进行检测、验收和判断。</div><div>3、乙方可通过平台、电子邮箱、手机短信等方式向甲方发送服务商品、重要提示、促销信息、服务规则、争议解决等信息。</div><div>4、甲方违约时，乙方及关联方可向紧急联系人发出协助转达还款提醒。</div><div>紧急联系人：${contactName ! ""}　${contactPhone ! ""}　${contactRelation ! ""}</div><div>紧急联系人：${contactName2 ! ""}　${contactPhone2 ! ""}　${contactRelation2 ! ""}</div><div>紧急联系人：${contactName3 ! ""}　${contactPhone3 ! ""}　${contactRelation3 ! ""}</div>
+    </div>
+    <div class="col c3">
+        <div>5、当发生各项费用逾期支付时，乙方有权自行或委托第三方进行催收。</div><div>6、在发货前，乙方有权根据甲方资质、信用评级等情况调整押金额度或取消订单或终止协议。</div>
+        <div class="strong">五、个人信息收集与授权</div><div>1、甲方使用平台租赁服务时，必须向乙方和平台运营方提供必要的个人信息，用于提供租赁服务及风险评估。</div><div>2、为履行本协议之目的，乙方或平台运营方有权向必要的第三方提供甲方的个人信息、账号、手机号等信息。</div><div>3、甲方授权乙方通过自行收集或甲方提供的个人信息发送还款提醒或逾期催收信息，并提供给有关合作机构、征信机构。</div>
+        <div class="strong">六、违约责任</div><div>1、协议任何一方发生违约，应承担继续履行、采取补救措施、支付违约金、赔偿损失等责任。</div><div>2、租期届满前未按时足额支付租金的，乙方有权收取每日超期违约金，累计逾期超过30日的，有权解除协议并要求返还设备。</div><div>3、甲方提前归还设备的，按剩余租金总额的15%承担违约金。</div><div>4、因甲方原因造成设备损坏或擅自维修、添改的，应按协议约定或维修单报价承担赔偿责任。</div><div>5、违约方还应赔偿守约方全部损失，包括诉讼费/仲裁费、律师费、差旅费、公证费、保全费等。</div>
+    </div>
+</div>
+
+<div class="page">
+    <div class="col c1"><div class="strong">七、赔偿条款</div><div>甲方应妥善合理使用租赁设备，如设备无法归还或不符合归还标准，应支付相应赔偿金：</div><div>1、租赁物遗失、损毁、无法开机、进液、无法读取序列号或IMEI编号的，赔偿金额为到期购买款金额。</div><div>2、指纹或人脸识别功能异常，赔偿金额=设备总价值×30%。</div><div>3、配件缺失或损坏，赔偿金额以官网配件价格为准。</div><div>4、iCloud账户无法注销，赔偿金额=设备总价值×65%。</div><div>5、机身弯曲变形，赔偿金额=设备总价值×50%。</div><div>6、信号/WIFI不正常、触摸失灵，赔偿金额=设备总价值×50%。</div><div>7、无法进入正常界面，赔偿金额=设备总价值-已付租金。</div><div>8、其它故障情形，赔偿金额以维修单为准。</div><div class="strong">八、争议解决</div><div>1、本协议适用中华人民共和国大陆地区法律。</div><div>2、未发生债权转让时，双方同意提交<span class="line">${arbitrationName ! ""}</span>仲裁委员会依互联网仲裁规则进行书面审理，仲裁裁决是终局的。</div></div>
+    <div class="col c2"><div>发生债权转让时，由最终债权受让方住所地或被告所在地有管辖权的人民法院管辖。败诉方承担实现债权所支出的相关费用。</div><div>3、订单详情页面、发货单、物流轨迹信息、设备签收回执、支付记录、催收通知、债权转让通知等均为本协议附件，与本协议具有同等法律效力。</div><div class="strong">九、通知及送达</div><div>1、因履行本协议需发送通知的，应以如下联系方式发送：</div><table class="info"><tr><th colspan="2">甲方信息</th></tr><tr><td>联系人</td><td>${realName ! ""}</td></tr><tr><td>联系电话</td><td>${mobile ! ""}</td></tr><tr><td>联系地址</td><td>${address ! ""}</td></tr><tr><td>电子邮箱</td><td>${email ! ""}</td></tr></table><table class="info"><tr><th colspan="2">乙方信息</th></tr><tr><td>联系人</td><td>${sellerLegalPerson ! ""}</td></tr><tr><td>联系电话</td><td>${sellerMobile ! ""}</td></tr><tr><td>联系地址</td><td>${sellerAddress ! ""}</td></tr><tr><td>电子邮箱</td><td>${sellerEmail ! ""}</td></tr></table></div>
+    <div class="col c3"><div>2、乙方发送给甲方的书面通知，可选择邮寄或电子送达。邮寄送达以甲方填写的联系地址为准；电子方式通知的当日即视为已送达。</div><div class="strong">3、法律文书的送达</div><div>司法机关可以手机短信、电子邮件或邮寄方式向甲方送达法律文书。甲方确认本协议中提供的手机号码、电子邮箱、联系地址为有效送达地址。上述送达方式适用于一审、二审、再审、执行、督促程序及仲裁程序。联系方式变更的，甲方应及时告知乙方。</div><div class="strong">十、其他</div><div>1、甲方通过点击确认、勾选同意等方式确认本协议，即视为同意以电子协议方式订立并认可本协议效力，并授权乙方代为申请电子签名。</div><div>2、在电子协议上使用电子签名视同完成协议签署，本协议即时生效。</div><div>3、补充协议、订单信息与本协议不一致的，以补充协议及订单信息为准。</div><div>4、本协议及平台相关规则签署后，非经法定或约定方式和程序，不得擅自修改。</div></div>
+</div>
+
+<div class="page">
+    <div class="col c1"><div class="strong">甲乙双方声明</div><div class="strong">甲乙双方已经充分阅读并理解以上协议条款内容，并承诺对本协议无异议、遵守本协议约定。</div><div class="sign">甲方：（签字或盖章）</div><div class="sign-gap"></div><div>乙方：（签字或盖章）</div><div class="sign-gap"></div><div>签订日期：${signDate ! ""}</div></div>
+    <div class="col c2"><div class="title">租享优增值服务协议</div><div class="gap13"></div><div>甲方（承租方）：${realName ! ""}</div><div>乙方（出租方）：${sellerName ! ""}</div><div class="gap13"></div><div class="strong">一、租享优服务说明</div><div>1、乙方为租赁产品提供增值服务：甲方购买之后，在产品租赁期间发生意外导致屏幕碎裂或缺损，维修费用由乙方承担，或在归还设备时豁免上述屏幕瑕疵。服务期间仅享受一次。</div><div>2、服务仅适用于租期内设备；租赁协议提前结束或甲方逾期，服务立即终止。</div><div>3、乙方有权选择品牌方或正规第三方维修商对产品进行鉴定、维修。</div><div>4、订单配件、物流损坏、报废、进水、人为划痕、维修拆机刷机、改变操作系统等情况不适用本服务。</div><div>5、客服热线【${kfMobile ! ""}】。</div><div class="strong">二、租享优服务费用及服务流程</div><div>1、甲方自愿选择购买增值服务的，须在支付订单租金时一并支付服务费用。</div><div>2、服务费用不可退。</div></div>
+    <div class="col c3"><div>3、优享服务采用寄修方式，快递费由各方自行承担。</div><div>4、维修配件为原厂或等同原装质量部件，部件费用无需甲方承担。</div><div class="strong">三、优享服务流程</div><div>1）设备发生意外碎屏，请第一时间拍摄设备外观。</div><div>2）联系客服并提供相关素材。</div><div>3）审核通过后寄回设备。</div><div>4）乙方收货后维修。</div><div>5）乙方向甲方回寄设备，服务结束。</div><div class="strong">四、重要提示</div><div>1、维修前请做好数据备份，敏感或重要数据请提前删除。</div><div>2、寄回设备请取消开机密码锁，因密码锁定导致无法检测的，乙方有权不提供维修服务。</div><div>3、若设备出现需承担赔偿责任的情形，仍需依据租赁服务协议进行赔付。</div></div>
+</div>
+
+<div class="page">
+    <div class="col c1"><div class="title">租享优增值服务协议（续）</div><div class="gap13"></div><div class="strong">双方确认</div><div class="strong">甲方确认已阅读并理解本《租享优增值服务协议》的全部内容，并自愿选择是否购买该增值服务。</div><div class="sign">甲方：（签字或盖章）</div><div class="sign-gap"></div><div>乙方：（签字或盖章）</div><div class="sign-gap"></div><div>签订日期：${signDate ! ""}</div></div>
+    <div class="col c2"></div><div class="col c3"></div>
+</div>
+
+</body>
+</html>
